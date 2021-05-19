@@ -24,7 +24,9 @@
  */
 
 import puppy from "puppeteer";
-import { url, interval } from "../config.json";
+import { readFileSync } from "fs";
+
+const { url, interval } = JSON.parse(readFileSync("../config.json", "utf-8"));
 
 const start = async () => {
   const browser = await puppy.launch();
